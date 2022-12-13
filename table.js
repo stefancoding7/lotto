@@ -70,26 +70,80 @@ function addNames() {
 
         for (let i = 0; i < 18; i++) {
             for (let u = 0; u < 9; u++) {
+                tCell[u + i * 9].setAttribute("class", "cx-" + (u + 1) + ' ' + "cy-" + (i + 1));
                 tCell[u + i * 9].setAttribute("id", "x" + (u + 1) + "-y" + (i + 1));
 
             }
         }
 
         // Random box choice
+        let allY = new Array();
+        let allX = new Array();
+        
 
-        let randColumn = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let blockedY = new Array();
+        let blockedX = new Array();
+        let blockedId = new Array();
+        
 
-        for (let i = 0; i < cordY.length; i++) {
-            randColumn.sort(function () { return .5 - Math.random() });
-            
-            for (let u = 0; u < 5; u++) {
-                let box = document.querySelector("#x" + cordX[randColumn[u] - 1][0] + "-y" + cordY[i][0]);
-                cordX[randColumn[u] - 1][0] + "-y" + cordY[i][0];
-                box.innerHTML = noList[randColumn[u] - 1][rand(noList[randColumn[u] - 1].length)];
-                box.innerHTML;
-                (randColumn[u] - 1) +  box.innerHTML;
-                noList[randColumn[u] - 1] = noList[randColumn[u] - 1].filter(function(val) { return val != box.innerHTML; });
-            }
+        for(let y = 0; y < 18; y++){
+            allY.push('cy-' + (y + 1));
         }
+        console.log(allY);
+
+        for(let x = 0; x < 9; x++){
+            allX.push('cx-'+ (x + 1));
+        }
+        
+        for(let y = 0; y < 18; y++){
+            let n = randomUniqueNum(18, 5);
+            
+            for(let w = 0; w < n.length; w++){
+                allY.filter(function(e) { return e !== 'cy-'+n[w] })
+            }
+            
+            let rowY = document.querySelector('.cy-'+(y + 1));
+            console.log(rowY);
+
+            
+        }
+        console.log(allY);
+        // let randColumn = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        
+        // for(let i = 0; i < cordY.length; i++) {
+        //     let a = randColumn.sort(function () { return .5 - Math.random() });
+            
+        //     for (let u = 0; u < 5; u++) {
+
+
+
+        //         let box = document.querySelector("#x" + cordX[randColumn[u] - 1][0] + "-y" + cordY[i][0]);
+                
+
+        //         cordX[randColumn[u] - 1][0] + "-y" + cordY[i][0];
+        //         box.innerHTML = noList[randColumn[u] - 1][rand(noList[randColumn[u] - 1].length)];
+        //         box.innerHTML;
+        //         (randColumn[u] - 1) +  box.innerHTML;
+        //         noList[randColumn[u] - 1] = noList[randColumn[u] - 1].filter(function(val) { return val != box.innerHTML; });
+        //     }
+        // }
     }
+}
+
+function randomUniqueNum(range, outputCount) {
+
+  let arr = []
+  for (let i = 1; i <= range; i++) {
+    arr.push(i)
+  }
+
+  let result = [];
+
+  for (let i = 1; i <= outputCount; i++) {
+    const random = Math.floor(Math.random() * (range - i));
+    result.push(arr[random]);
+    arr[random] = arr[range - i];
+  }
+
+  return result;
 }
