@@ -12,6 +12,8 @@ for (let i = 0; i < 9; i++) {
     }
 }
 
+
+
 function rand(num) {
     return Math.floor(Math.random() * (num));
 }
@@ -79,13 +81,13 @@ function addNames() {
 
         for (let i = 0; i < cordY.length; i++) {
             randColumn.sort(function () { return .5 - Math.random() });
-            console.log("Current random column nimbers are: " + randColumn);
+            
             for (let u = 0; u < 5; u++) {
                 let box = document.querySelector("#x" + cordX[randColumn[u] - 1][0] + "-y" + cordY[i][0]);
-                console.log("choosen box ID is: x" + cordX[randColumn[u] - 1][0] + "-y" + cordY[i][0]);
+                cordX[randColumn[u] - 1][0] + "-y" + cordY[i][0];
                 box.innerHTML = noList[randColumn[u] - 1][rand(noList[randColumn[u] - 1].length)];
-                console.log("Gose into the box: " + box.innerHTML);
-                console.log("taking away from noList[" + (randColumn[u] - 1) + "].indexOf(" + box.innerHTML + "), 1);");
+                box.innerHTML;
+                (randColumn[u] - 1) +  box.innerHTML;
                 noList[randColumn[u] - 1] = noList[randColumn[u] - 1].filter(function(val) { return val != box.innerHTML; });
             }
         }
