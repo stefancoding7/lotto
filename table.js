@@ -86,7 +86,7 @@ function addNames() {
                 box.innerHTML = noList[randColumn[u] - 1][rand(noList[randColumn[u] - 1].length)];
                 console.log("Gose into the box: " + box.innerHTML);
                 console.log("taking away from noList[" + (randColumn[u] - 1) + "].indexOf(" + box.innerHTML + "), 1);");
-                console.log(noList[randColumn[u] - 1].splice(noList[randColumn[u] - 1].indexOf(box.innerHTML)), 1);
+                console.log(noList[randColumn[u] - 1] = noList[randColumn[u] - 1].filter(function(val) { return val != box.innerHTML; }));
                 // randColumn[2].spl
             }
         }
